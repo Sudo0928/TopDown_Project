@@ -66,6 +66,7 @@ namespace TopDown_Project
         public void GameOver()
         {
             enemyManager.StopWave();
+            uiManager.SetGameOver();
         }
     }
 }
