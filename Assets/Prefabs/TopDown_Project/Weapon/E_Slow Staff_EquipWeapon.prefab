@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 120
-  m_Sprite: {fileID: 21300000, guid: 74adb4f581b967a42a54a5144c735bf4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 30f3e3d22fd20cf45affa65adba639ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 8436269818688115527}
   - component: {fileID: 5268082742148727832}
   m_Layer: 7
-  m_Name: P_Bow_EquipWeapon
+  m_Name: E_Slow Staff_EquipWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,23 +183,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e21aa8d1e089b48b04a7df2e1e35d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.5
-  weaponSize: 0.7
-  power: 5
-  speed: 10
+  delay: 3
+  weaponSize: 0.6
+  power: 2
+  speed: 1
   attackRange: 10
   target:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 64
   isOnKnockBack: 1
-  knockbackPower: 1
+  knockbackPower: 3
   knockbackTime: 0.1
   attackSoundClip: {fileID: 0}
   projectileSpawnPosition: {fileID: 2441772313451415981}
-  bulletIndex: 0
-  bulletSize: 0.7
+  bulletIndex: 1
+  bulletSize: 1
   duration: 10
   spread: 1
-  numberofProjectilesPerShot: 3
-  multipleProjectilesAngle: 3
-  projectileColor: {r: 1, g: 1, b: 1, a: 1}
+  numberofProjectilesPerShot: 1
+  multipleProjectilesAngle: 1
+  projectileColor: {r: 0.053194284, g: 1, b: 0, a: 1}

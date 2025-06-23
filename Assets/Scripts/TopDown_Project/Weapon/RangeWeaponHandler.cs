@@ -30,10 +30,13 @@ namespace TopDown_Project
         [SerializeField] private Color projectileColor;
         public Color ProjectileColor { get { return projectileColor; } }
 
+        private StatHandler statHandler;
+
         protected override void Start()
         {
             base.Start();
             projectileManager = ProjectileManager.Instance;
+            statHandler = GetComponentInParent<StatHandler>();
         }
 
         public override void Attack()
@@ -41,7 +44,7 @@ namespace TopDown_Project
             base.Attack();
 
             float projectilesAngleSpace = multipleProjectilesAngle;
-            int numberOfProjectilesPerShot = numberofProjectilesPerShot;
+            int numberOfProjectilesPerShot = numberofProjectilesPerShot + (int)statHandler.GetStat(StatType.ProjectileCount);
 
             float minAngle = -(numberOfProjectilesPerShot / 2f) * projectilesAngleSpace;
 

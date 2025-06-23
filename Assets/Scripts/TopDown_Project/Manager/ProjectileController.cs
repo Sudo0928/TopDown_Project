@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TopDown_Project
 {
-    public class ProjectileController : MonoBehaviour
+    public class ProjectileController : MonoBehaviour, IPoolable
     {
         private ProjectileManager projectileManager;
 
@@ -20,6 +20,8 @@ namespace TopDown_Project
         private SpriteRenderer spriteRenderer;
 
         public bool fxOnDestory = true;
+
+        private Action<GameObject> returnToPool;
 
         private void Awake()
         {
@@ -97,7 +99,23 @@ namespace TopDown_Project
                 projectileManager.CreateImpactParticlesAtPosition(position, rangeWeaponHandler);
             }
 
-            Destroy(this.gameObject);
+            // Destroy(this.gameObject);
+            OnDespawn();
+        }
+
+        public void Initialize(Action<GameObject> returnAction)
+        {
+            returnToPool = returnAction;
+        }
+
+        public void OnSpawn()
+        {
+            
+        }
+
+        public void OnDespawn()
+        {
+            returnToPool?.Invoke(gameObject);
         }
     }
 }

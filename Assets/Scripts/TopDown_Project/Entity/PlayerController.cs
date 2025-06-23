@@ -57,5 +57,25 @@ namespace TopDown_Project
             base.Death();
             gameManager.GameOver();
         }
+
+        public void UseItem(ItemData item)
+        {
+            foreach(StatEntry modifier in item.statModifiers)
+            {
+                statHandler.ModifyStat(modifier.statType, modifier.baseValue, !item.isTemporary, item.duration);
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if(collision.TryGetComponent(out ItemHandler handler))
+            {
+                if (handler.ItemData == null)
+                    return;
+
+                UseItem(handler.ItemData);
+                Destroy(handler.gameObject);
+            }
+        }
     }
 }
